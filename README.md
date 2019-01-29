@@ -19,4 +19,4 @@
 |user_id|string|null:false, foreign_key: true|
 
 ### Association
-- belong_to :user
+- belongs_to :user
