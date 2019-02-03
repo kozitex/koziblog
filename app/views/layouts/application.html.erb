@@ -5,11 +5,59 @@
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
+    <script
+      src="https://code.jquery.com/jquery-3.3.1.js"
+      integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60="
+      crossorigin="anonymous"></script>
+
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+
+    <!-- Compiled and minified CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/css/materialize.min.css">
+
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
+    <!-- Compiled and minified JavaScript -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/js/materialize.min.js"></script>
+
   </head>
 
   <body>
+    <!-- ヘッダー -->
+    <nav class="teal lighten-1">
+      <div class="nav-wrapper">
+        <%= link_to 'KOZIBLOG', root_path, class: 'brand-logo', data: {"turbolinks" => false} %>
+        <ul id="nav-mobile" class="right hide-on-med-and-down">
+          <% if user_signed_in? %>
+            <input class="current_user_id" value="<%= current_user.id %>" type="hidden">
+            <li id="new"><a>新規投稿</a></li>
+            <li><%= link_to 'サインアウト', destroy_user_session_path, method: :delete %></li>
+          <% else %>
+            <li><%= link_to 'サインイン', new_user_session_path, method: :get %></li>
+            <li><%= link_to 'サインアップ', new_user_registration_path, method: :get %></li>
+          <% end %>
+        </ul>
+      </div>
+    </nav>
+
+    <!-- 新規投稿フォーム -->
+    <% if controller.controller_name == 'posts' %>
+    <ul class="inner">
+      <li>
+        <div class="row">
+          <div class="col s6 offset-s3">
+            <div class="card-panel">
+              <div class="row"><h5>新規投稿</h5></div>
+              <%= render partial: 'form' %>
+            </div>
+          </div>
+        </div>
+      </li>
+    </ul>
+    <% end %>
+
+    <!-- 投稿一覧 -->
     <%= yield %>
   </body>
 </html>
