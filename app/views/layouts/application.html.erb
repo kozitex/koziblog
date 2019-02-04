@@ -25,7 +25,8 @@
 
   <body>
     <!-- ヘッダー -->
-    <nav class="teal lighten-1">
+    <!-- <nav class="teal lighten-1"> -->
+    <nav class="light-blue darken-3">
       <div class="nav-wrapper">
         <%= link_to 'KOZIBLOG', root_path, class: 'brand-logo', data: {"turbolinks" => false} %>
         <ul id="nav-mobile" class="right hide-on-med-and-down">
@@ -58,6 +59,9 @@
     <% end %>
 
     <!-- 投稿一覧 -->
-    <%= yield %>
+    <ul class="inner open">
+      <%= yield %>
+    </ul>
+
   </body>
 </html>
