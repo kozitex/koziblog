@@ -58,7 +58,7 @@ $(function() {
       console.log(post);
 
       var strHTML1 = '<span class="black-text"><p>' + post + '</p></span>'
-      var strHTML2 = '<ul><li><a id="' + postID + '" class="waves-effect waves-light btn right destroy">削除</a></li><li><a class="waves-effect waves-light btn right" href="/posts/' + postID + '/edit">修正</a></li><li><a class="waves-effect waves-light btn right" href="/posts/' + postID + '">詳細</a></li><div style="height: 24px;"></div></ul>'
+      var strHTML2 = '<ul><li><a id="' + postID + '" class="light-blue darken-3 waves-effect waves-light btn right destroy">削除</a></li><li><a class="light-blue darken-3 waves-effect waves-light btn right" href="/posts/' + postID + '/edit">修正</a></li><li><a class="light-blue darken-3 waves-effect waves-light btn right" href="/posts/' + postID + '">詳細</a></li><div style="height: 40px;"></div></ul>'
       var strHTML3 = $('<div class="card-panel">').append(strHTML1 + strHTML2);
       var strHTML = $('<div class="row">').append($('<div class="col s6 offset-s3">').append(strHTML3));
       $('.posts').prepend(strHTML);
